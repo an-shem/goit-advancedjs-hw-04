@@ -1,0 +1,58 @@
+.loader {
+  --color-1: #6c8cff;
+  --size: 1.5px;
+
+  position: absolute;
+  width: calc(48 * var(--size));
+  height: calc(48 * var(--size));
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  border: calc(5 * var(--size)) solid var(--color-1);
+  border-radius: 50%;
+  display: block;
+  box-sizing: border-box;
+  animation: pulse 1s linear infinite;
+}
+
+.loader.is-hidden {
+  display: none;
+}
+
+.loader:after {
+  content: '';
+  position: absolute;
+  width: calc(48 * var(--size));
+  height: calc(48 * var(--size));
+  border: calc(5 * var(--size)) solid var(--color-1);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: scaleUp 1s linear infinite;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  60%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes pulse {
+  0%,
+  60%,
+  100% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+}
